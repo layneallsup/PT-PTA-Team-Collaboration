@@ -32,13 +32,10 @@
         *, *::before, *::after { box-sizing: border-box; }
         html, body { background: var(--color-bg); margin: 0; font-family: "Manrope", system-ui, sans-serif; }
 
-        /* ── LAYOUT: deck shrinks when notes panel open ── */
+        /* ── LAYOUT ── */
         body { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
         #app { display: flex; flex-direction: column; height: 100vh; }
         .deck-wrapper { flex: 1; position: relative; min-height: 0; transition: flex 0.4s ease; }
-        .notes-panel { height: 0; overflow: hidden; background: #1E293B; border-top: 3px solid #0891B2; transition: height 0.4s ease; flex-shrink: 0; }
-        .notes-panel.open { height: 200px; }
-        body.notes-open .deck-wrapper { flex: 1; }
 
         .deck { width: 100%; height: 100%; position: relative; }
         .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--color-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transform: scale(0.96); transition: opacity 0.6s ease, transform 0.6s ease; pointer-events: none; overflow: hidden; }
@@ -54,16 +51,7 @@
         .slide-dots .dot.active { background: #0891B2; transform: scale(1.3); }
         .slide-counter { font-size: 0.72rem; color: #64748B; min-width: 34px; text-align: center; }
 
-        /* ── NOTES TOGGLE BUTTON ── */
-        .notes-toggle { display: flex; align-items: center; gap: 5px; background: rgba(8,145,178,0.12); border: 1px solid rgba(8,145,178,0.30); color: #0891B2; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; cursor: pointer; transition: background 0.2s; }
-        .notes-toggle:hover { background: rgba(8,145,178,0.20); }
-        .notes-toggle.active { background: #0891B2; color: white; border-color: #0891B2; }
-
-        /* ── NOTES PANEL INNER ── */
-        .notes-inner { height: 100%; overflow-y: auto; display: flex; align-items: flex-start; gap: 1.5rem; padding: 0.9rem 2rem; }
-        .notes-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0891B2; white-space: nowrap; padding-top: 2px; min-width: 80px; }
-        .notes-text { color: #CBD5E1; font-size: 0.82rem; line-height: 1.65; }
-        .notes-text strong { color: #F1F5F9; }
+        /* notes UI removed */
 
         /* ── REVEAL ── */
         .reveal { opacity: 0; transform: translateY(16px); }
@@ -174,8 +162,7 @@
 <div class="deck">
 
 <!-- ═══ SLIDE 1 — TITLE ═══ -->
-<div class="slide slide-1 active" data-slide="1"
-     data-notes="Welcome! Today I'm presenting my PTA 100 Final Project on PT/PTA Team Collaboration, using a specific post-operative rotator cuff case to explore how physical therapists and PTAs work together, what can go wrong when communication breaks down, and what best practices look like in real clinical situations.">
+<div class="slide slide-1 active" data-slide="1">
     <div class="gradient-mesh">
         <div class="blob" style="width:500px;height:500px;top:-120px;right:-100px;background:#0891B2;opacity:0.10;"></div>
         <div class="blob" style="width:350px;height:350px;bottom:-80px;left:-60px;background:#34D399;opacity:0.09;"></div>
@@ -192,8 +179,7 @@
 </div>
 
 <!-- ═══ SLIDE 2 — THE CASE ═══ -->
-<div class="slide slide-2" data-slide="2"
-     data-notes="Our case is a patient who is 3 weeks post-op from a rotator cuff repair. The PT has evaluated them, confirmed the tendon is still in early healing, and written a PROM-only plan — meaning the PTA guides passive shoulder movement but the patient uses zero active muscle force. The central problem: during a PTA-led session, the patient attempts to actively lift their arm. This creates a clinical decision point that requires both roles to respond correctly.">
+<div class="slide slide-2" data-slide="2">
     <div class="gradient-mesh">
         <div class="blob" style="width:320px;height:320px;top:-60px;right:-80px;background:#0891B2;opacity:0.07;"></div>
         <div class="blob" style="width:220px;height:220px;bottom:-50px;left:-40px;background:#34D399;opacity:0.06;"></div>
@@ -220,8 +206,7 @@
 </div>
 
 <!-- ═══ SLIDE 3 — WHAT PTs DO ═══ -->
-<div class="slide slide-3" data-slide="3"
-     data-notes="The APTA is very clear that the PT is the director of the plan of care. In this case, that means the PT performs the initial evaluation at 3 weeks post-op, determines the tendon is still in the early biological healing phase, and writes the PROM-only protocol with specific restrictions. Even when the PTA carries out the sessions, the PT remains legally and professionally responsible for all outcomes. Pagliarulo reinforces this on page 53 — delegation does not transfer accountability. The PT must also be the one to decide when it is safe to advance — moving from PROM to AAROM to active motion — based on re-evaluation and available surgical documentation.">
+<div class="slide slide-3" data-slide="3">
     <div class="gradient-mesh">
         <div class="blob" style="width:300px;height:300px;top:-50px;right:-60px;background:#0891B2;opacity:0.07;"></div>
         <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#06B6D4;opacity:0.06;"></div>
@@ -252,8 +237,7 @@
 </div>
 
 <!-- ═══ SLIDE 4 — WHAT PTAs DO ═══ -->
-<div class="slide slide-4" data-slide="4"
-     data-notes="The PTA is not a passive technician — they are an active clinical partner. In this case, the PTA guides each PROM session: moving the shoulder through approved ranges while the patient stays completely passive. Critically, the PTA is also monitoring throughout. Pagliarulo on page 50 describes clinical problem solving as the PTA's ability to adjust or modify an intervention based on clinical indications while communicating findings back to the PT. So the PTA is always asking: does this plan still fit what I'm seeing? When the patient attempts active lifting, the PTA's job is to stop it, explain why, and immediately report it to the PT in the same session.">
+<div class="slide slide-4" data-slide="4">
     <div class="gradient-mesh">
         <div class="blob" style="width:300px;height:300px;top:-50px;right:-60px;background:#34D399;opacity:0.08;"></div>
         <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#0891B2;opacity:0.06;"></div>
@@ -284,8 +268,7 @@
 </div>
 
 <!-- ═══ SLIDE 5 — EVIDENCE ═══ -->
-<div class="slide slide-5" data-slide="5"
-     data-notes="A 2023 retrospective cohort study out of PubMed Central looked at outpatient PT/PTA teams treating musculoskeletal shoulder pain and compared their outcomes to PT-only care. The result: equivalent outcomes across three domains — pain, range of motion, and disability scores. But here's the critical qualifier: this equivalence only held when the PTA practiced within the appropriate supervisory structure. That's the whole point of this project — the collaboration works, but only when roles are clear and communication is functioning. If those break down, so do outcomes.">
+<div class="slide slide-5" data-slide="5">
     <div class="gradient-mesh">
         <div class="blob" style="width:380px;height:380px;top:-80px;right:-80px;background:#0891B2;opacity:0.08;"></div>
         <div class="blob" style="width:260px;height:260px;bottom:-60px;left:-40px;background:#34D399;opacity:0.07;"></div>
@@ -320,8 +303,7 @@
 </div>
 
 <!-- ═══ SLIDE 6 — TEAMWORK IN ACTION ═══ -->
-<div class="slide slide-6" data-slide="6"
-     data-notes="Let's walk through how this case actually unfolds as a PT/PTA team interaction. The PT evaluates the patient at 3 weeks post-op and writes the PROM-only plan with precautions documented in writing. The PTA then runs each session: guiding passive shoulder movement, reinforcing why active motion isn't safe yet, and keeping a close eye on how the patient is responding. Then the active lifting attempt happens. The PTA stops it, explains why — and calls the PT in that same session. This is exactly what Pagliarulo describes on page 33: intervention happens together, with the PTA carrying out a substantial component of care but always keeping the PT informed.">
+<div class="slide slide-6" data-slide="6">
     <div class="gradient-mesh">
         <div class="blob" style="width:300px;height:300px;top:-50px;right:-60px;background:#06B6D4;opacity:0.07;"></div>
         <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#0891B2;opacity:0.06;"></div>
@@ -348,8 +330,7 @@
 </div>
 
 <!-- ═══ SLIDE 7 — WHEN COMMUNICATION BREAKS DOWN ═══ -->
-<div class="slide slide-7" data-slide="7"
-     data-notes="Now let's look at what goes wrong if the PTA does NOT report the active lifting attempt. The PT keeps treating the situation as stable — assuming precautions are being followed — while the actual clinical reality has shifted. Pagliarulo on page 61 is explicit: a patient requesting to advance beyond the plan is one of the specific situations that obligates the PTA to seek PT reassessment. This isn't optional. On top of that, a 2021 PubMed study found that therapists frequently work without operative notes, tear size data, or surgeon-specific instructions. When you already have incomplete surgical information, AND poor internal communication between PT and PTA, the risk to the patient compounds significantly. The researchers called for both better surgeon-to-therapist handoff AND better internal team communication.">
+<div class="slide slide-7" data-slide="7">
     <div class="gradient-mesh">
         <div class="blob" style="width:320px;height:320px;top:-60px;right:-70px;background:#F59E0B;opacity:0.07;"></div>
         <div class="blob" style="width:220px;height:220px;bottom:-40px;left:-30px;background:#F87171;opacity:0.06;"></div>
@@ -382,8 +363,7 @@
 </div>
 
 <!-- ═══ SLIDE 8 — HOW PT GUIDES PTA ═══ -->
-<div class="slide slide-8" data-slide="8"
-     data-notes="The fourth guide question asks how PTs guide PTAs while still respecting patient needs. The key insight from the research is that good guidance is about context, not just restriction. When the PT provides the PTA with operative notes, tear size, tissue quality, and written specific advancement criteria — the PTA can make sound real-time clinical decisions without overstepping. Pagliarulo frames this on page 50 as the PTA's clinical problem-solving ability: adjusting within the plan based on what they see. On the patient side, both the PT and PTA should explain the 'why': feeling better does not mean the tendon is healed. Showing the patient what they CAN do — within the current stage — helps them feel supported rather than dismissed, and makes it easier for the PTA to hold the clinical line.">
+<div class="slide slide-8" data-slide="8">
     <div class="gradient-mesh">
         <div class="blob" style="width:300px;height:300px;top:-50px;right:-60px;background:#0891B2;opacity:0.07;"></div>
         <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#34D399;opacity:0.06;"></div>
@@ -414,8 +394,7 @@
 </div>
 
 <!-- ═══ SLIDE 9 — REHAB TIMELINE ═══ -->
-<div class="slide slide-9" data-slide="9"
-     data-notes="To understand why PROM-only matters so much at 3 weeks, both the PT and PTA need to understand the full rehabilitation arc. The first 6 weeks are about tendon healing — this is the most biologically vulnerable stage. The repaired tissue is not yet strong enough to tolerate active muscle forces, regardless of what the patient is feeling. AAROM begins around 6-12 weeks once the PT confirms tissue integrity. Active strengthening doesn't begin until 12-16 weeks. Full return to function — overhead activity, work or sport — is typically months 4-6 or beyond depending on tear size and repair type. The 2021 PubMed study flagged that protocols are often generic and don't account for individual surgical variables. This reinforces the need for the PT to pull actual operative notes before writing the plan.">
+<div class="slide slide-9" data-slide="9">
     <div class="gradient-mesh">
         <div class="blob" style="width:300px;height:300px;top:-50px;right:-60px;background:#06B6D4;opacity:0.07;"></div>
         <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#0891B2;opacity:0.06;"></div>
@@ -469,8 +448,7 @@
 </div>
 
 <!-- ═══ SLIDE 10 — RECOMMENDATIONS ═══ -->
-<div class="slide slide-10" data-slide="10"
-     data-notes="Based on everything in my research, here are the specific recommendations for this case. For the PTA: stop the active lifting attempt in the moment, explain to the patient why PROM-only is still required even if they feel better — the tendon is still biologically healing regardless of pain levels — and then contact the PT before the patient leaves. For the PT: review the surgical documentation, determine whether a formal reassessment is needed, and provide the PTA with updated written advancement criteria. Going forward, both clinicians need a pre-agreed escalation protocol: what gets reported, how quickly, and who makes the call on any changes. This removes ambiguity and protects the patient.">
+<div class="slide slide-10" data-slide="10">
     <div class="gradient-mesh">
         <div class="blob" style="width:380px;height:380px;top:-80px;right:-80px;background:#0891B2;opacity:0.08;"></div>
         <div class="blob" style="width:260px;height:260px;bottom:-60px;left:-40px;background:#34D399;opacity:0.07;"></div>
@@ -506,8 +484,7 @@
 </div>
 
 <!-- ═══ SLIDE 11 — SOURCES ═══ -->
-<div class="slide slide-11" data-slide="11"
-     data-notes="Here are my four sources. First, the APTA's official supervision and teamwork guidance, which establishes the foundational role definitions. Second, the 2023 retrospective cohort study from PubMed Central, PMC10464543, which provided the evidence that PT/PTA teams produce equivalent outcomes to PT-only care. Third, the 2021 PubMed article on surgeon-therapist communication in rotator cuff rehabilitation, PMID 33970072, which highlighted the gap in operative information and the need for patient-specific protocols. Fourth, Pagliarulo's Introduction to Physical Therapy, 5th edition, which was our course textbook and provided the foundational clinical and role-based framework throughout this project.">
+<div class="slide slide-11" data-slide="11">
     <div class="gradient-mesh">
         <div class="blob" style="width:300px;height:300px;top:-60px;right:-60px;background:#0891B2;opacity:0.07;"></div>
         <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#34D399;opacity:0.06;"></div>
@@ -538,8 +515,7 @@
 </div>
 
 <!-- ═══ SLIDE 12 — CLOSING ═══ -->
-<div class="slide slide-12" data-slide="12"
-     data-notes="To close: PT/PTA collaboration in post-operative rotator cuff care is not just a staffing model — it is an evidence-based approach that produces patient outcomes equivalent to PT-only care. But it requires something in return: clear role boundaries, two-way communication, and a PTA who understands the why behind the plan — not just the what. When those things are in place, the system works. When they break down, patient safety is at risk. This case shows both sides of that coin, and shows what it looks like to do it right. Thank you.">
+<div class="slide slide-12" data-slide="12">
     <div class="gradient-mesh">
         <div class="blob" style="width:500px;height:500px;top:-100px;right:-100px;background:#0891B2;opacity:0.11;"></div>
         <div class="blob" style="width:350px;height:350px;bottom:-80px;left:-60px;background:#34D399;opacity:0.09;"></div>
@@ -574,14 +550,7 @@
 </div><!-- end .deck -->
 </div><!-- end .deck-wrapper -->
 
-<!-- ═══ NOTES PANEL ═══ -->
-<div class="notes-panel" id="notesPanel">
-    <div class="notes-inner">
-        <span class="notes-label">&#128221; Presenter Notes</span>
-        <p class="notes-text" id="notesText">Select a slide to see notes.</p>
-    </div>
-</div>
-
+</div><!-- end #app -->
 </div><!-- end #app -->
 
 <!-- ═══ NAVIGATION ═══ -->
@@ -590,7 +559,6 @@
     <div class="slide-dots" id="dots"></div>
     <button class="nav-btn" onclick="changeSlide(1)">&#8250;</button>
     <span class="slide-counter" id="counter">1 / 13</span>
-    <button class="notes-toggle" id="notesToggle" onclick="toggleNotes()">&#128221; Notes</button>
 </div>
 
 <div class="mouse-spotlight" style="position:fixed;inset:0;z-index:99;pointer-events:none;"></div>
@@ -599,13 +567,10 @@
 
 <script>
     let current = 1;
-    let notesOpen = false;
     const total = document.querySelectorAll(".slide").length;
     const dotsContainer = document.getElementById("dots");
     const counter = document.getElementById("counter");
-    const notesPanel = document.getElementById("notesPanel");
-    const notesText = document.getElementById("notesText");
-    const notesToggle = document.getElementById("notesToggle");
+    // notes UI removed
 
     for (let i = 1; i <= total; i++) {
         const dot = document.createElement("div");
@@ -621,7 +586,6 @@
         if (next) {
             next.classList.add("active");
             animateSlide(next);
-            if (notesOpen) updateNotes(next);
         }
         current = n; updateNav();
     }
@@ -638,25 +602,12 @@
         counter.textContent = current + " / " + total;
     }
 
-    function toggleNotes() {
-        notesOpen = !notesOpen;
-        notesPanel.classList.toggle("open", notesOpen);
-        notesToggle.classList.toggle("active", notesOpen);
-        if (notesOpen) {
-            const active = document.querySelector(".slide.active");
-            if (active) updateNotes(active);
-        }
-    }
-
-    function updateNotes(slide) {
-        const raw = slide.getAttribute("data-notes") || "No notes for this slide.";
-        notesText.innerHTML = raw;
-    }
+    // notes functions removed
 
     document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); changeSlide(1); }
         if (e.key === "ArrowLeft") { e.preventDefault(); changeSlide(-1); }
-        if (e.key === "n" || e.key === "N") toggleNotes();
+        // notes toggling removed
         if (e.key === "l" || e.key === "L") toggleLaser();
     });
 
