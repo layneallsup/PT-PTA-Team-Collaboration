@@ -40,7 +40,7 @@
         .deck { width: 100%; height: 100%; position: relative; }
         .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--color-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transform: scale(0.96); transition: opacity 0.6s ease, transform 0.6s ease; pointer-events: none; overflow: hidden; }
         .slide.active { opacity: 1; transform: scale(1); pointer-events: all; }
-        .slide > .content { position: relative; z-index: 2; width: 100%; max-width: 1080px; padding: clamp(1.2rem, 3vw, 3rem); }
+        .slide > .content { position: relative; z-index: 2; width: 100%; max-width: min(1680px, 94vw); padding: clamp(1rem, 2vw, 1.8rem) clamp(1rem, 2.4vw, 2.4rem); }
 
         /* ── NAV ── */
         .nav-controls { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; z-index: 200; background: rgba(255,255,255,0.94); backdrop-filter: blur(10px); padding: 7px 20px; border-radius: 40px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
@@ -65,41 +65,42 @@
         .blob:nth-child(2) { animation: float-drift 16s ease-in-out infinite; }
         .blob:nth-child(3) { animation: float-slow 20s ease-in-out infinite reverse; }
         .slide::after { content:""; position:absolute; inset:0; z-index:1; pointer-events:none; background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.03) 100%); }
+        .slide-11::after { display:none !important; }
 
         /* ── DESIGN TOKENS ── */
-        .section-pill { display: inline-block; background: linear-gradient(135deg,#0891B2,#06B6D4); color:white; font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:3px 12px; border-radius:20px; margin-bottom:0.6rem; }
+        .section-pill { display: inline-block; background: linear-gradient(135deg,#0891B2,#06B6D4); color:white; font-size:1.05rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:7px 20px; border-radius:20px; margin-bottom:1rem; }
         .teal-rule { height:3px; background:linear-gradient(90deg,#0891B2,#06B6D4,transparent); border:none; border-radius:2px; margin:0.7rem 0; width:50px; }
-        .source-line { font-size:0.62rem; color:#94A3B8; font-style:italic; margin-top:0.5rem; }
-        .cite { font-size:0.72em; color:#0891B2; font-weight:700; font-style:normal; vertical-align:super; line-height:0; margin-left:1px; letter-spacing:0; }
+        .source-line { font-size:1.05rem; color:#94A3B8; font-style:italic; margin-top:0.5rem; }
+        .cite { font-size:0.78em; color:#0891B2; font-weight:700; font-style:normal; vertical-align:super; line-height:0; margin-left:1px; letter-spacing:0; }
         .cite + .cite { margin-left:0; }
         .grad-title { background:linear-gradient(135deg,#0891B2 0%,#06B6D4 50%,#34D399 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
         .hero-emoji { animation:float 3s ease-in-out infinite; display:inline-block; }
 
         /* ── LEAN BULLET LIST ── */
         .lean-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.55rem; }
-        .lean-list li { display:flex; align-items:flex-start; gap:0.7rem; padding:0.65rem 0.9rem; background:white; border-radius:10px; border-left:3px solid #0891B2; box-shadow:0 1px 6px rgba(0,0,0,0.05); font-size:0.88rem; font-weight:600; color:#0F172A; }
+        .lean-list li { display:flex; align-items:flex-start; gap:0.8rem; padding:1rem 1.3rem; background:white; border-radius:12px; border-left:4px solid #0891B2; box-shadow:0 1px 6px rgba(0,0,0,0.05); font-size:1.6rem; font-weight:600; color:#0F172A; line-height:1.25; }
         .lean-list li.green { border-left-color:#34D399; }
         .lean-list li.amber { border-left-color:#F59E0B; }
         .lean-list li.red { border-left-color:#F87171; }
-        .lean-list li .icon { font-size:1rem; flex-shrink:0; margin-top:1px; }
-        .lean-list li .sub { font-weight:400; color:#64748B; font-size:0.78rem; display:block; margin-top:1px; }
+        .lean-list li .icon { font-size:1.85rem; flex-shrink:0; margin-top:1px; }
+        .lean-list li .sub { font-weight:400; color:#64748B; font-size:1.28rem; display:block; margin-top:3px; line-height:1.25; }
 
         /* ── STAT CARDS ── */
-        .stat-card { background:white; border-radius:14px; padding:1rem 1.1rem; box-shadow:0 2px 10px rgba(0,0,0,0.06); text-align:center; }
-        .stat-num { font-family:"DM Serif Display",Georgia,serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; background:linear-gradient(135deg,#0891B2,#06B6D4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1.1; }
+        .stat-card { background:white; border-radius:14px; padding:1.5rem 1.4rem; box-shadow:0 2px 10px rgba(0,0,0,0.06); text-align:center; }
+        .stat-num { font-family:"DM Serif Display",Georgia,serif; font-size:clamp(2.6rem,5.2vw,4rem); font-weight:700; background:linear-gradient(135deg,#0891B2,#06B6D4); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1.1; }
 
         /* ── TIMELINE ── */
         .timeline-track { position:relative; padding-left:1.8rem; }
         .timeline-track::before { content:""; position:absolute; left:0.4rem; top:8px; bottom:8px; width:2px; background:linear-gradient(to bottom,#0891B2,#34D399); border-radius:2px; }
         .timeline-node { position:relative; margin-bottom:0.85rem; }
         .timeline-node::before { content:""; position:absolute; left:-1.4rem; top:5px; width:10px; height:10px; border-radius:50%; background:#0891B2; border:2px solid white; box-shadow:0 0 0 2px #0891B2; }
-        .phase-tag { font-size:0.62rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#0891B2; }
+        .phase-tag { font-size:0.95rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:#0891B2; }
 
         /* ── WARNING BOX ── */
-        .warning-box { background:#FFF7ED; border:1px solid #FED7AA; border-left:4px solid #F59E0B; border-radius:10px; padding:0.7rem 0.9rem; font-size:0.82rem; color:#334155; }
+        .warning-box { background:#FFF7ED; border:1px solid #FED7AA; border-left:4px solid #F59E0B; border-radius:10px; padding:1.1rem 1.4rem; font-size:1.28rem; color:#334155; }
 
         /* ── TWO-COL ROLE ── */
-        .role-header { display:inline-flex; align-items:center; gap:6px; font-size:0.72rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:0.65rem; }
+        .role-header { display:inline-flex; align-items:center; gap:7px; font-size:1.3rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; padding:9px 20px; border-radius:20px; margin-bottom:0.9rem; }
         .role-pt { background:rgba(8,145,178,0.10); border:1px solid rgba(8,145,178,0.25); color:#0891B2; }
         .role-pta { background:rgba(52,211,153,0.10); border:1px solid rgba(52,211,153,0.30); color:#059669; }
 
@@ -115,37 +116,37 @@
 
         /* Slide 2: larger bullet cards that stretch to match anatomy image height */
         .slide2-list { height:100%; }
-        .slide2-list li { font-size:1.05rem; padding:0.95rem 1.15rem; gap:0.85rem; flex:1; align-items:center; }
-        .slide2-list li .icon { font-size:1.25rem; margin-top:0; }
-        .slide2-list li .sub { font-size:0.9rem; }
+        .slide2-list li { font-size:1.55rem; padding:1rem 1.4rem; gap:0.9rem; flex:1; align-items:center; }
+        .slide2-list li .icon { font-size:1.8rem; margin-top:0; }
+        .slide2-list li .sub { font-size:1.3rem; }
+        .slide2-list li .icf-tag { display:block; font-size:0.8rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:#0891B2; margin-bottom:2px; }
         @media (max-height: 720px) {
-            .slide2-list li { font-size:0.98rem; padding:0.8rem 1rem; }
-            .slide2-list li .sub { font-size:0.82rem; }
+            .slide2-list li { font-size:1.3rem; padding:0.75rem 1.1rem; }
+            .slide2-list li .sub { font-size:1.12rem; }
         }
 
         /* Slide 6: larger step cards that stretch to align with the quote box bottom */
         .slide6-list { height:100%; }
-        .slide6-list li { font-size:1.02rem; padding:0.9rem 1.1rem; gap:0.8rem; flex:1; align-items:center; }
-        .slide6-list li .icon { font-size:1.2rem; margin-top:0; }
-        .slide6-list li .sub { font-size:0.88rem; }
+        .slide6-list li { font-size:1.62rem; padding:1.25rem 1.5rem; gap:1rem; flex:1; align-items:center; }
+        .slide6-list li .icon { font-size:1.85rem; margin-top:0; }
+        .slide6-list li .sub { font-size:1.4rem; }
         @media (max-height: 720px) {
-            .slide6-list li { font-size:0.95rem; padding:0.75rem 0.95rem; }
-            .slide6-list li .sub { font-size:0.8rem; }
+            .slide6-list li { font-size:1.4rem; padding:1rem 1.25rem; }
+            .slide6-list li .sub { font-size:1.2rem; }
         }
 
         /* Slide 7: evidence cards stretch to match the image column height */
-        .slide7-list { height:100%; }
-        .slide7-list li { font-size:0.98rem; line-height:1.45; padding:1rem 1.2rem; gap:0.9rem; flex:1; align-items:flex-start; }
-        .slide7-list li strong { display:block; line-height:1.4; }
-        .slide7-list li .sub { font-size:0.82rem; letter-spacing:0.01em; }
-        .slide7-list .marker { flex-shrink:0; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-family:'DM Serif Display',Georgia,serif; font-size:0.95rem; font-weight:700; color:white; margin-top:1px; box-shadow:0 2px 6px rgba(0,0,0,0.15); }
+        .slide7-list li { font-size:1.3rem; line-height:1.28; padding:0.7rem 1rem; gap:0.75rem; align-items:flex-start; }
+        .slide7-list li strong { display:block; line-height:1.42; }
+        .slide7-list li .sub { font-size:1.1rem; letter-spacing:0.01em; }
+        .slide7-list .marker { flex-shrink:0; width:34px; height:34px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-family:'DM Serif Display',Georgia,serif; font-size:1.2rem; font-weight:700; color:white; margin-top:1px; box-shadow:0 2px 6px rgba(0,0,0,0.15); }
         .slide7-list .marker-red { background:#EF4444; }
         .slide7-list .marker-amber { background:#F59E0B; }
         .slide7-list .marker-teal { background:#0891B2; }
         @media (max-height: 720px) {
-            .slide7-list li { font-size:0.92rem; padding:0.8rem 1rem; }
-            .slide7-list li .sub { font-size:0.76rem; }
-            .slide7-list .marker { width:24px; height:24px; font-size:0.88rem; }
+            .slide7-list li { font-size:1.15rem; padding:0.6rem 0.9rem; }
+            .slide7-list li .sub { font-size:1rem; }
+            .slide7-list .marker { width:30px; height:30px; font-size:1.05rem; }
         }
 
         /* ── LASER POINTER MODE (press L) ── */
@@ -154,6 +155,11 @@
         body.laser-mode .laser-dot { display:block; }
         .laser-toast { position:fixed; bottom:70px; left:50%; transform:translateX(-50%); background:rgba(15,23,42,0.92); color:#F8FAFC; font-size:0.78rem; font-weight:600; letter-spacing:0.05em; padding:8px 16px; border-radius:20px; z-index:9998; opacity:0; pointer-events:none; transition:opacity 0.25s; }
         .laser-toast.show { opacity:1; }
+
+        /* ── SOURCE CARD LINKS (Slide 12) ── */
+        .source-card-link { text-decoration:none; color:inherit; cursor:pointer; transition:transform 0.15s ease, box-shadow 0.15s ease; }
+        .source-card-link:hover { transform:translateY(-2px); box-shadow:0 4px 14px rgba(8,145,178,0.18); }
+        .source-card-link:hover p:first-child { text-decoration:underline; }
     </style>
 </head>
 <body>
@@ -171,378 +177,351 @@
     <canvas class="particle-canvas" style="position:absolute;inset:0;z-index:1;"></canvas>
     <div class="content text-center">
         <img src="images/pt-pta-team.png" alt="Physical therapist and PTA supporting a patient walking away from a wheelchair" class="reveal slide-hero-img">
-<h1 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,5.5vw,4rem);font-weight:700;line-height:1.1;margin-bottom:0.6rem;" class="grad-title reveal">PT/PTA Team Collaboration</h1>
-        <p style="font-size:clamp(0.85rem,1.3vw,1.1rem);color:#64748B;letter-spacing:4px;text-transform:uppercase;font-weight:300;margin-bottom:1.2rem;" class="reveal">Post-Op Rotator Cuff Repair &middot; Case 1.1</p>
-        <hr class="teal-rule reveal" style="margin:0 auto 1.2rem auto;">
-        <p style="color:#64748B;font-size:0.85rem;" class="reveal">Presented by Layne Allsup</p>
+<h1 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.6rem,6.2vw,4.6rem);font-weight:700;line-height:1.1;margin-bottom:0.7rem;" class="grad-title reveal">PT/PTA Team Collaboration</h1>
+        <p style="font-size:clamp(1rem,1.5vw,1.25rem);color:#64748B;letter-spacing:4px;text-transform:uppercase;font-weight:300;margin-bottom:1.4rem;" class="reveal">Post-Op Rotator Cuff Repair &middot; Case 1.1</p>
+        <hr class="teal-rule reveal" style="margin:0 auto 1.4rem auto;">
+        <p style="color:#64748B;font-size:1.35rem;" class="reveal">Presented by Layne Allsup</p>
     </div>
 </div>
 
 <!-- ═══ SLIDE 2 — THE CASE ═══ -->
-<div class="slide slide-2" data-slide="2">
+<div class="slide slide-2" data-slide="2" style="justify-content:flex-start;">
     <div class="gradient-mesh">
         <div class="blob" style="width:320px;height:320px;top:-60px;right:-80px;background:#0891B2;opacity:0.07;"></div>
         <div class="blob" style="width:220px;height:220px;bottom:-50px;left:-40px;background:#34D399;opacity:0.06;"></div>
     </div>
-    <div class="content">
-        <div class="section-pill reveal">Case Overview</div>
-        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin-bottom:0.3rem;" class="reveal">The Patient &amp; Situation</h2>
-        <hr class="teal-rule reveal">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:0.9rem;align-items:stretch;">
-            <ul class="lean-list slide2-list" style="justify-content:space-between;gap:0.7rem;">
-                <li class="reveal"><span class="icon">&#128203;</span><span><strong>Post-Op Rotator Cuff Repair</strong><span class="sub" style="display:block;margin-top:3px;">3 weeks post-surgery</span></span></li>
-                <li class="reveal"><span class="icon">&#127988;</span><span><strong>PROM-Only Protocol Active</strong><span class="sub" style="display:block;margin-top:3px;">No active motion permitted</span></span></li>
-                <li class="reveal amber"><span class="icon">&#9888;&#65039;</span><span><strong>Patient Attempts Active Lifting</strong><span class="sub" style="display:block;margin-top:3px;">During PTA-led session</span></span></li>
-                <li class="reveal"><span class="icon">&#10067;</span><span><strong>What do the PT &amp; PTA do?</strong><span class="sub" style="display:block;margin-top:3px;">This is our central question</span></span></li>
-            </ul>
-            <div class="reveal" style="display:flex;flex-direction:column;">
-                <div class="slide2-image-box" style="background:linear-gradient(180deg,rgba(8,145,178,0.05),rgba(52,211,153,0.05));border-radius:12px;padding:0.4rem;display:flex;align-items:center;justify-content:center;width:100%;flex:1;">
-                    <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/223dd8d41a1b796c67b4d5fe882ef3264bbd0b19.jpg" alt="Rotator cuff anatomy" style="max-width:100%;max-height:min(48vh,380px);width:auto;height:auto;object-fit:contain;display:block;">
+    <div class="content" style="height:100%;display:flex;flex-direction:column;padding-bottom:105px;padding-top:4.5rem;box-sizing:border-box;">
+        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4.2vw,3rem);font-weight:700;margin-bottom:0.4rem;flex-shrink:0;" class="reveal">Meet the Patient</h2>
+        <p style="color:#64748B;font-size:1.32rem;flex-shrink:0;" class="reveal">Marcus, 55 &middot; Full-Time CPA &middot; Weekend Aerialist &#129496;</p>
+        <hr class="teal-rule reveal" style="flex-shrink:0;">
+        <div style="display:flex;gap:1.1rem;align-items:stretch;max-height:calc(100vh - 230px);overflow:hidden;">
+            <div class="reveal" style="width:36%;flex-shrink:0;">
+                <div class="slide2-image-box" style="background:linear-gradient(180deg,rgba(8,145,178,0.05),rgba(52,211,153,0.05));border-radius:12px;padding:0.5rem;width:100%;aspect-ratio:1074/1130.4;position:relative;overflow:hidden;">
+                    <img src="images/FiberTak® SpeedBridge™ Rotator Cuff Repair.png" alt="Suture-bridge anchor repair reattaching the rotator cuff tendon to the humerus" style="width:calc(100% - 1rem);height:auto;position:absolute;top:-11.111%;left:0.5rem;display:block;">
                 </div>
-                <p class="source-line" style="margin-top:0.5rem;">Rotator cuff: supraspinatus, infraspinatus, teres minor, subscapularis</p>
+            </div>
+            <div style="display:flex;flex-direction:column;flex:1;min-width:0;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:minmax(0,1fr);gap:0.55vw;height:100%;min-width:0;">
+                <div class="lean-list-card reveal" style="display:flex;align-items:center;gap:0.65rem;padding:0.9vw 0.9rem;background:white;border-radius:12px;border-left:4px solid #0891B2;box-shadow:0 1px 6px rgba(0,0,0,0.05);"><span style="font-size:1.7vw;flex-shrink:0;">&#128203;</span><span><strong style="font-size:1.5vw;color:#0F172A;line-height:1.2;">3 Weeks Post-Op RCR</strong><span style="display:block;margin-top:2px;font-size:1.22vw;color:#64748B;line-height:1.25;">PROM Only</span><span style="display:block;font-size:1.22vw;color:#64748B;line-height:1.25;">Pain 1/10 at rest — deceptively low</span></span></div>
+                <div class="lean-list-card reveal" style="display:flex;align-items:center;gap:0.65rem;padding:0.9vw 0.9rem;background:white;border-radius:12px;border-left:4px solid #0891B2;box-shadow:0 1px 6px rgba(0,0,0,0.05);"><span style="font-size:1.7vw;flex-shrink:0;">&#128300;</span><span><strong style="font-size:1.5vw;color:#0F172A;line-height:1.2;">Surgical Finding</strong><span style="display:block;margin-top:2px;font-size:1.22vw;color:#64748B;line-height:1.25;">2.5 cm, crescent tear, distal supraspinatus</span></span></div>
+                <div class="lean-list-card reveal" style="display:flex;align-items:center;gap:0.65rem;padding:0.9vw 0.9rem;background:white;border-radius:12px;border-left:4px solid #0891B2;box-shadow:0 1px 6px rgba(0,0,0,0.05);"><span style="font-size:1.7vw;flex-shrink:0;">&#128683;</span><span><strong style="font-size:1.5vw;color:#0F172A;line-height:1.2;">Functional Limits</strong><span style="display:block;margin-top:2px;font-size:1.22vw;color:#64748B;line-height:1.25;">Can't lift, reach, or drive</span><span style="display:block;font-size:1.22vw;color:#64748B;line-height:1.25;">No typing, no weight bearing</span></span></div>
+                <div class="lean-list-card reveal" style="display:flex;align-items:center;gap:0.65rem;padding:0.9vw 0.9rem;background:white;border-radius:12px;border-left:4px solid #0891B2;box-shadow:0 1px 6px rgba(0,0,0,0.05);"><span style="font-size:1.7vw;flex-shrink:0;">&#127968;</span><span><strong style="font-size:1.5vw;color:#0F172A;line-height:1.2;">Strong Support</strong><span style="display:block;margin-top:2px;font-size:1.22vw;color:#64748B;line-height:1.25;">Husband drives &amp; helps with ADLs</span><span style="display:block;font-size:1.22vw;color:#64748B;line-height:1.25;">Ergonomic home office set-up</span></span></div>
+                <div class="lean-list-card reveal" style="grid-column:span 2;display:flex;align-items:center;gap:0.65rem;padding:0.9vw 0.9rem;background:white;border-radius:12px;border-left:4px solid #F59E0B;box-shadow:0 1px 6px rgba(0,0,0,0.05);"><span style="font-size:1.7vw;flex-shrink:0;">&#127919;</span><span><strong style="font-size:1.5vw;color:#0F172A;line-height:1.2;">High Motivation, High Risk</strong><span style="display:block;margin-top:2px;font-size:1.22vw;color:#64748B;line-height:1.25;">Eager to get back to work and the studio</span><span style="display:block;font-size:1.22vw;color:#64748B;line-height:1.25;">Low pain fuels compliance risk</span></span></div>
+            </div>
+            </div>
+        </div>
+        <p class="source-line reveal" style="width:36%;margin-top:0.3rem;font-size:1.1rem;text-align:center;line-height:1.3;">Double-row SpeedBridge repair using FiberTape sutures.</p>
+    </div>
+</div>
+
+<!-- ═══ SLIDE 3 — REHAB TIMELINE ═══ -->
+<div class="slide slide-3" data-slide="3">
+    <div class="gradient-mesh">
+        <div class="blob" style="width:300px;height:300px;top:-50px;right:-60px;background:#06B6D4;opacity:0.07;"></div>
+        <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#0891B2;opacity:0.06;"></div>
+    </div>
+    <div class="content">
+        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4.2vw,3rem);font-weight:700;margin-bottom:0.4rem;" class="reveal">Rotator Cuff Repair: Rehab Phases</h2>
+        <hr class="teal-rule reveal">
+        <p style="color:#64748B;font-size:1.32rem;margin-bottom:1rem;" class="reveal">Our case is at <strong style="color:#0891B2;">Week 3</strong>, the most vulnerable healing stage.</p>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.85rem;align-items:stretch;">
+            <div class="phase-card reveal" style="position:relative;background:white;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);overflow:hidden;display:flex;flex-direction:column;border-top:3px solid #0891B2;">
+                <div style="position:relative;">
+                    <img src="images/phase1-prom.png" alt="Patient in a shoulder sling seated on a treatment table while a PTA gently supports the arm" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+                    <span style="position:absolute;top:8px;right:8px;background:#0891B2;color:white;font-size:0.75rem;font-weight:700;padding:4px 10px;border-radius:14px;box-shadow:0 2px 6px rgba(8,145,178,0.35);">&#128205; Our Case</span>
+                </div>
+                <div style="padding:0.85rem 0.95rem;flex:1;display:flex;flex-direction:column;">
+                    <p class="phase-tag" style="margin-bottom:0.2rem;">Phase 1 &middot; Weeks 0&ndash;6</p>
+                    <p style="font-weight:700;color:#0F172A;font-size:1.3rem;line-height:1.3;">PROM Only: Tendon Healing</p>
+                    <p style="color:#64748B;font-size:1.12rem;margin-top:0.4rem;line-height:1.35;">Passive pendulums &amp; ROM. No active motion. Sling use.</p>
+                </div>
+            </div>
+            <div class="phase-card reveal" style="background:white;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);overflow:hidden;display:flex;flex-direction:column;border-top:3px solid #06B6D4;">
+                <img src="images/phase2-aarom.png" alt="Patient using a wooden cane for active-assisted shoulder motion while a PTA guides the elbow" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+                <div style="padding:0.85rem 0.95rem;flex:1;display:flex;flex-direction:column;">
+                    <p class="phase-tag" style="margin-bottom:0.2rem;">Phase 2 &middot; Weeks 6&ndash;12</p>
+                    <p style="font-weight:700;color:#0F172A;font-size:1.3rem;line-height:1.3;">AAROM: Active-Assisted Motion</p>
+                    <p style="color:#64748B;font-size:1.12rem;margin-top:0.4rem;line-height:1.35;">Pulleys, cane-assisted ROM.</p>
+                </div>
+            </div>
+            <div class="phase-card reveal" style="background:white;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);overflow:hidden;display:flex;flex-direction:column;border-top:3px solid #34D399;">
+                <img src="images/phase3-arom.png" alt="Patient using a teal resistance band for shoulder strengthening while a physical therapist coaches" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+                <div style="padding:0.85rem 0.95rem;flex:1;display:flex;flex-direction:column;">
+                    <p class="phase-tag" style="margin-bottom:0.2rem;">Phase 3 &middot; Weeks 12&ndash;16+</p>
+                    <p style="font-weight:700;color:#0F172A;font-size:1.3rem;line-height:1.3;">AROM &amp; Strengthening</p>
+                    <p style="color:#64748B;font-size:1.12rem;margin-top:0.4rem;line-height:1.35;">Active motion begins. Resistance bands, isometrics, progressive loading.</p>
+                </div>
+            </div>
+            <div class="phase-card reveal" style="background:white;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);overflow:hidden;display:flex;flex-direction:column;border-top:3px solid #059669;">
+                <img src="images/phase4-functional.png" alt="Patient standing and reaching one arm fully overhead in a functional return motion with a PTA nearby" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+                <div style="padding:0.85rem 0.95rem;flex:1;display:flex;flex-direction:column;">
+                    <p class="phase-tag" style="margin-bottom:0.2rem;">Phase 4 &middot; Month 4&ndash;6+</p>
+                    <p style="font-weight:700;color:#0F172A;font-size:1.3rem;line-height:1.3;">Functional Return</p>
+                    <p style="color:#64748B;font-size:1.12rem;margin-top:0.4rem;line-height:1.35;">Overhead activity, work/sport return, depending on tear size and repair type.</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- ═══ SLIDE 3 — WHAT PTs DO ═══ -->
-<div class="slide slide-3" data-slide="3">
+<!-- ═══ SLIDE 4 — WHAT PTs DO ═══ -->
+<div class="slide slide-4" data-slide="4">
     <div class="gradient-mesh">
         <div class="blob" style="width:300px;height:300px;top:-50px;right:-60px;background:#0891B2;opacity:0.07;"></div>
         <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#06B6D4;opacity:0.06;"></div>
     </div>
     <div class="content">
-        <div class="section-pill reveal">PT Role</div>
-        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin-bottom:0.3rem;" class="reveal">What the Physical Therapist Does</h2>
+        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4.2vw,3rem);font-weight:700;margin-bottom:0.4rem;" class="reveal">What the Physical Therapist Does</h2>
         <hr class="teal-rule reveal">
         <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:1.2rem;margin-top:0.9rem;align-items:start;">
             <div>
                 <ul class="lean-list">
-                    <li class="reveal"><span class="icon">&#128269;</span><span><strong>Evaluates &amp; Diagnoses</strong><span class="sub" style="display:block;margin-top:2px;">Initial post-op assessment; confirms early healing phase</span></span></li>
-                    <li class="reveal"><span class="icon">&#128203;</span><span><strong>Writes the Plan of Care</strong><span class="sub" style="display:block;margin-top:2px;">PROM-only with documented restrictions; no active lifting</span></span></li>
-                    <li class="reveal"><span class="icon">&#9878;&#65039;</span><span><strong>Retains Full Accountability</strong><span class="sub" style="display:block;margin-top:2px;">Responsible for all outcomes — even when care is delegated</span></span></li>
-                    <li class="reveal"><span class="icon">&#128260;</span><span><strong>Authorizes All Progression</strong><span class="sub" style="display:block;margin-top:2px;">Only the PT decides when to advance: PROM &#8594; AAROM &#8594; AROM</span></span></li>
+                    <li class="reveal"><span class="icon">&#128269;</span><span><strong>Reviews the Surgeon's Orders</strong><span class="sub" style="display:block;margin-top:2px;">Operative report: tear size, tissue/bone quality, repair technique</span></span></li>
+                    <li class="reveal"><span class="icon">&#128203;</span><span><strong>Writes the Plan of Care</strong><span class="sub" style="display:block;margin-top:2px;">Translates the surgeon's orders into PROM-only precautions</span></span></li>
+                    <li class="reveal"><span class="icon">&#128260;</span><span><strong>Authorizes All Progression</strong><span class="sub" style="display:block;margin-top:2px;">Clears each phase: PROM &#8594; AAROM &#8594; AROM, then updates the PTA's instructions</span></span></li>
+                    <li class="reveal"><span class="icon">&#9878;&#65039;</span><span><strong>Retains Full Accountability</strong><span class="sub" style="display:block;margin-top:2px;">Owns the outcome of Marcus's repair, even on days a PTA runs the session</span></span></li>
                 </ul>
-                <div style="margin-top:0.9rem;background:rgba(8,145,178,0.06);border-radius:10px;padding:0.7rem 0.9rem;border-left:3px solid #0891B2;" class="reveal">
-                    <p style="font-size:0.78rem;color:#334155;font-style:italic;">"Even when selected physical therapy interventions are directed to a PTA, the PT remains responsible for the care, documentation, and outcomes related to that intervention." — Pagliarulo, p. 53</p>
-                </div>
             </div>
             <div class="reveal">
                 <img src="images/pt-writing-plan.png" alt="Physical therapist writing a plan of care on a clipboard in a rehab clinic" class="content-img">
                 <p class="source-line">The PT documents the plan of care that directs every PTA session</p>
             </div>
         </div>
-        <p class="source-line reveal" style="margin-top:0.6rem;">APTA supervision guidance<span class="cite">1</span>; Pagliarulo<span class="cite">4</span> (pp. 33, 53). See slide 12 for full references.</p>
+        <p class="source-line reveal" style="margin-top:0.6rem;">Pagliarulo<span class="cite">3</span> (pp. 33, 53).</p>
     </div>
 </div>
 
-<!-- ═══ SLIDE 4 — WHAT PTAs DO ═══ -->
-<div class="slide slide-4" data-slide="4">
+<!-- ═══ SLIDE 5 — WHAT PTAs DO ═══ -->
+<div class="slide slide-5" data-slide="5">
     <div class="gradient-mesh">
         <div class="blob" style="width:300px;height:300px;top:-50px;right:-60px;background:#34D399;opacity:0.08;"></div>
         <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#0891B2;opacity:0.06;"></div>
     </div>
     <div class="content">
-        <div class="section-pill reveal" style="background:linear-gradient(135deg,#059669,#34D399);">PTA Role</div>
-        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin-bottom:0.3rem;" class="reveal">What the PTA Does</h2>
+        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4.2vw,3rem);font-weight:700;margin-bottom:0.4rem;" class="reveal">What the PTA Does</h2>
         <hr class="teal-rule reveal" style="background:linear-gradient(90deg,#059669,#34D399,transparent);">
-        <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:1.2rem;margin-top:0.9rem;align-items:start;">
+        <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:1.2rem;margin-top:0.4rem;align-items:start;">
             <div>
-                <ul class="lean-list">
-                    <li class="green reveal"><span class="icon">&#129308;</span><span><strong>Executes PROM Sessions</strong><span class="sub" style="display:block;margin-top:2px;">Guides passive shoulder movement within the PT's plan</span></span></li>
-                    <li class="green reveal"><span class="icon">&#128064;</span><span><strong>Actively Monitors the Patient</strong><span class="sub" style="display:block;margin-top:2px;">Watches for symptom changes, precaution violations, requests to advance</span></span></li>
-                    <li class="green reveal"><span class="icon">&#129504;</span><span><strong>Applies Clinical Judgment — Within the Plan</strong><span class="sub" style="display:block;margin-top:2px;">Can adjust technique; cannot change the plan independently</span></span></li>
-                    <li class="green reveal"><span class="icon">&#128222;</span><span><strong>Reports Back to the PT — Same Session</strong><span class="sub" style="display:block;margin-top:2px;">Any clinically significant change requires immediate communication</span></span></li>
+                <ul class="lean-list" style="gap:0.3rem;">
+                    <li class="green reveal" style="padding:0.85rem 1.15rem;"><span class="icon">&#129308;</span><span><strong>Executes PROM Sessions</strong><span class="sub" style="display:block;margin-top:2px;">Guides passive shoulder movement within the PT's plan</span></span></li>
+                    <li class="green reveal" style="padding:0.85rem 1.15rem;"><span class="icon">&#128064;</span><span><strong>Actively Monitors the Patient</strong><span class="sub" style="display:block;margin-top:2px;">Watches for guarding, shrugging, or requests to advance early</span></span></li>
+                    <li class="green reveal" style="padding:0.85rem 1.15rem;"><span class="icon">&#129504;</span><span><strong>Applies Clinical Judgment</strong><span class="sub" style="display:block;margin-top:2px;">Can adjust hand placement or pendulum arc, not the precaution itself</span></span></li>
+                    <li class="green reveal" style="padding:0.85rem 1.15rem;"><span class="icon">&#128222;</span><span><strong>Reports Back, Same Session</strong><span class="sub" style="display:block;margin-top:2px;">Any clinically significant change requires immediate communication<span class="cite">4</span></span></span></li>
                 </ul>
-                <div style="margin-top:0.9rem;background:rgba(52,211,153,0.06);border-radius:10px;padding:0.7rem 0.9rem;border-left:3px solid #34D399;" class="reveal">
-                    <p style="font-size:0.78rem;color:#334155;font-style:italic;">"Clinical problem solving includes the ability to adjust, modify, or discontinue an intervention within the plan of care established by the PT based on clinical indications." — Pagliarulo, p. 50</p>
-                </div>
             </div>
             <div class="reveal">
                 <img src="images/pta-prom-guiding.png" alt="Physical therapist assistant guiding a patient's shoulder through passive range of motion" class="content-img">
                 <p class="source-line">The PTA guides passive ROM within the PT's plan</p>
             </div>
         </div>
-        <p class="source-line reveal" style="margin-top:0.6rem;">APTA supervision guidance<span class="cite">1</span>; Pagliarulo<span class="cite">4</span> (p. 50). See slide 12 for full references.</p>
+        <div style="margin-top:0.6rem;background:rgba(52,211,153,0.06);border-radius:10px;padding:0.6rem 0.9rem;border-left:3px solid #34D399;" class="reveal">
+            <p style="font-size:1.05rem;color:#334155;font-style:italic;line-height:1.35;">"Clinical problem solving includes the ability to adjust, modify, or discontinue an intervention within the plan of care established by the PT based on clinical indications." (Pagliarulo, p. 50)</p>
+        </div>
+        <p class="source-line reveal" style="margin-top:0.3rem;">APTA ethical standards<span class="cite">4</span>; Pagliarulo<span class="cite">3</span> (p. 50).</p>
     </div>
 </div>
 
-<!-- ═══ SLIDE 5 — EVIDENCE ═══ -->
-<div class="slide slide-5" data-slide="5">
+<!-- ═══ SLIDE 6 — HOW THEY COOPERATE ═══ -->
+<div class="slide slide-6" data-slide="6">
+    <div class="gradient-mesh">
+        <div class="blob" style="width:300px;height:300px;top:-50px;right:-60px;background:#0891B2;opacity:0.07;"></div>
+        <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#34D399;opacity:0.06;"></div>
+    </div>
+    <div class="content">
+        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4.2vw,3rem);font-weight:700;margin-bottom:0.4rem;" class="reveal">How the PT and PTA Cooperate</h2>
+        <hr class="teal-rule reveal">
+        <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:1.2rem;margin-top:0.9rem;align-items:start;">
+            <ul class="lean-list">
+                <li class="reveal"><span class="icon">&#128196;</span><span><strong>Shares Surgical Documentation</strong><span class="sub" style="display:block;margin-top:2px;">PT passes along tear size, tissue quality, and repair technique from the operative report</span></span></li>
+                <li class="reveal"><span class="icon">&#128172;</span><span><strong>Educates the Patient Together</strong><span class="sub" style="display:block;margin-top:2px;">Both reinforce the same PROM-only precautions every session, not just at intake</span></span></li>
+                <li class="reveal"><span class="icon">&#128260;</span><span><strong>Regular Two-Way Communication</strong><span class="sub" style="display:block;margin-top:2px;">PTA raises questions, PT updates precautions as healing progresses</span></span></li>
+                <li class="reveal"><span class="icon">&#128221;</span><span><strong>Regular Documentation</strong><span class="sub" style="display:block;margin-top:2px;">PTA logs daily observations; only the PT can author and sign the formal progress report</span></span></li>
+            </ul>
+            <div class="reveal">
+                <img src="images/pt-guides-pta.png" alt="Physical therapist guiding a physical therapist assistant through a patient's plan of care" class="content-img">
+                <p class="source-line">Aligned messaging starts before the session does</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ SLIDE 7 — EVIDENCE ═══ -->
+<div class="slide slide-7" data-slide="7">
     <div class="gradient-mesh">
         <div class="blob" style="width:380px;height:380px;top:-80px;right:-80px;background:#0891B2;opacity:0.08;"></div>
         <div class="blob" style="width:260px;height:260px;bottom:-60px;left:-40px;background:#34D399;opacity:0.07;"></div>
     </div>
     <canvas class="particle-canvas-ambient" style="position:absolute;inset:0;z-index:1;"></canvas>
     <div class="content text-center">
-        <div class="section-pill reveal">Research Evidence</div>
-        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin-bottom:0.3rem;" class="reveal">Does PT/PTA Collaboration Work?</h2>
+        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4.2vw,3rem);font-weight:700;margin-bottom:0.4rem;" class="reveal">Does PT/PTA Collaboration Work?</h2>
         <hr class="teal-rule reveal" style="margin:0.6rem auto 1rem auto;">
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:0.9rem;">
             <div class="stat-card reveal">
                 <div class="stat-num">= PT</div>
-                <p style="font-weight:700;color:#0F172A;font-size:0.82rem;margin-top:0.3rem;">Equivalent Outcomes</p>
-                <p style="color:#64748B;font-size:0.75rem;margin-top:0.2rem;">Matched PT-only teams</p>
+                <p style="font-weight:700;color:#0F172A;font-size:1.32rem;margin-top:0.35rem;">Equivalent Outcomes</p>
+                <p style="color:#64748B;font-size:1.15rem;margin-top:0.25rem;">Matched PT-only teams</p>
             </div>
             <div class="stat-card reveal">
                 <div class="stat-num">3</div>
-                <p style="font-weight:700;color:#0F172A;font-size:0.82rem;margin-top:0.3rem;">Domains Measured</p>
-                <p style="color:#64748B;font-size:0.75rem;margin-top:0.2rem;">Pain, ROM, disability</p>
+                <p style="font-weight:700;color:#0F172A;font-size:1.32rem;margin-top:0.35rem;">Domains Measured</p>
+                <p style="color:#64748B;font-size:1.15rem;margin-top:0.25rem;">Pain, ROM, disability</p>
             </div>
             <div class="stat-card reveal">
                 <div class="stat-num">1</div>
-                <p style="font-weight:700;color:#0F172A;font-size:0.82rem;margin-top:0.3rem;">Critical Condition</p>
-                <p style="color:#64748B;font-size:0.75rem;margin-top:0.2rem;">Proper supervisory structure required</p>
+                <p style="font-weight:700;color:#0F172A;font-size:1.32rem;margin-top:0.35rem;">Critical Condition</p>
+                <p style="color:#64748B;font-size:1.15rem;margin-top:0.25rem;">Proper supervisory structure required</p>
             </div>
         </div>
         <div style="background:white;border-radius:12px;padding:0.85rem 1.2rem;box-shadow:0 2px 10px rgba(0,0,0,0.06);text-align:left;" class="reveal">
-            <p style="color:#334155;font-size:0.85rem;"><span style="color:#0891B2;font-weight:700;">Key finding:</span> PT/PTA teams equal PT-only outcomes — <em>only when roles and supervision are clearly defined.</em></p>
+            <p style="color:#334155;font-size:1.35rem;"><span style="color:#0891B2;font-weight:700;">Key finding:</span> PT/PTA teams equal PT-only outcomes, but only when roles and supervision are clearly defined.</p>
         </div>
-        <p class="source-line reveal" style="margin-top:0.7rem;">Retrospective cohort study, outpatient shoulder rehab<span class="cite">2</span>. See slide 12 for full reference.</p>
+        <p class="source-line reveal" style="margin-top:0.7rem;">Retrospective cohort study, outpatient shoulder rehab<span class="cite">1</span>.</p>
     </div>
 </div>
 
-<!-- ═══ SLIDE 6 — TEAMWORK IN ACTION ═══ -->
-<div class="slide slide-6" data-slide="6">
-    <div class="gradient-mesh">
-        <div class="blob" style="width:300px;height:300px;top:-50px;right:-60px;background:#06B6D4;opacity:0.07;"></div>
-        <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#0891B2;opacity:0.06;"></div>
-    </div>
-    <div class="content">
-        <div class="section-pill reveal">How They Work Together</div>
-        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin-bottom:0.3rem;" class="reveal">The Collaboration in This Case</h2>
-        <hr class="teal-rule reveal">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:0.9rem;align-items:stretch;">
-            <ul class="lean-list slide6-list" style="justify-content:space-between;gap:0.7rem;">
-                <li class="reveal"><span class="icon">1&#65039;&#8419;</span><span><strong>PT evaluates &amp; writes PROM plan</strong><span class="sub" style="display:block;margin-top:3px;">With precautions documented in writing</span></span></li>
-                <li class="reveal"><span class="icon">2&#65039;&#8419;</span><span><strong>PTA executes each session</strong><span class="sub" style="display:block;margin-top:3px;">Passive ROM, symptom monitoring, patient education</span></span></li>
-                <li class="reveal amber"><span class="icon">3&#65039;&#8419;</span><span><strong>Patient attempts active lifting</strong><span class="sub" style="display:block;margin-top:3px;">PTA stops it, explains, contacts PT same session</span></span></li>
-                <li class="reveal"><span class="icon">4&#65039;&#8419;</span><span><strong>PT reassesses &amp; updates plan</strong><span class="sub" style="display:block;margin-top:3px;">Reviews surgical details; decides next step</span></span></li>
-            </ul>
-            <div class="reveal" style="display:flex;flex-direction:column;">
-                <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/5047bb2b39dd27b08848d3fc383de2c4e380379f.jpg" alt="PT working with patient on shoulder" class="content-img" style="margin-bottom:0.7rem;">
-                <div style="background:rgba(8,145,178,0.05);border-radius:10px;padding:0.6rem 0.8rem;border-left:3px solid #0891B2;margin-top:auto;">
-                    <p style="font-size:0.75rem;color:#334155;font-style:italic;">"A PTA would be involved in a substantial component of the care as delegated by the PT."<br>&mdash; Pagliarulo, p. 33</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ═══ SLIDE 7 — WHEN COMMUNICATION BREAKS DOWN ═══ -->
-<div class="slide slide-7" data-slide="7">
-    <div class="gradient-mesh">
-        <div class="blob" style="width:320px;height:320px;top:-60px;right:-70px;background:#F59E0B;opacity:0.07;"></div>
-        <div class="blob" style="width:220px;height:220px;bottom:-40px;left:-30px;background:#F87171;opacity:0.06;"></div>
-    </div>
-    <div class="content">
-        <div class="section-pill reveal" style="background:linear-gradient(135deg,#D97706,#F59E0B);">Communication Risk</div>
-        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin-bottom:0.3rem;" class="reveal">When Communication Breaks Down</h2>
-        <hr class="teal-rule reveal" style="background:linear-gradient(90deg,#D97706,#F59E0B,transparent);">
-        <div class="warning-box reveal" style="font-size:1.02rem;line-height:1.5;padding:0.7rem 1.25rem;border-radius:12px;border:2px solid #D97706;background:rgba(254,243,199,0.98);box-shadow:0 8px 22px rgba(217,119,6,0.22);margin-top:0.9rem;color:#0F172A;display:flex;align-items:baseline;gap:0.55rem;">
-            <span style="font-size:1.08rem;font-weight:800;color:#B45309;white-space:nowrap;flex-shrink:0;">&#9888;&#65039; The Risk:</span>
-            <span>Unreported active lifting &#8594; PT assumes precautions are held &#8594; plan stays unchanged while reality shifts</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:1.2rem;margin-top:0.85rem;align-items:stretch;">
-            <div style="display:flex;flex-direction:column;">
-                <ul class="lean-list slide7-list" style="justify-content:space-between;gap:0.75rem;">
-                    <li class="red reveal"><span class="marker marker-red">1</span><span><strong>Patient requesting advancement<br>&rarr; PTA must seek PT reassessment</strong><span class="sub" style="display:block;margin-top:5px;font-weight:400;font-style:italic;">Pagliarulo (2012) p. 61</span></span></li>
-                    <li class="amber reveal"><span class="marker marker-amber">2</span><span><strong>1 in 3 therapists rarely receive<br>operative notes from the surgeon</strong><span class="sub" style="display:block;margin-top:5px;font-weight:400;font-style:italic;">Rotator Cuff Communication Study, PubMed (2021)</span></span></li>
-                    <li class="reveal"><span class="marker marker-teal">3</span><span><strong>Incomplete surgical info + poor PT/PTA communication<br>&rarr; Compounded patient risk</strong><span class="sub" style="display:block;margin-top:5px;font-weight:400;font-style:italic;">Synthesis of Pagliarulo (2012) &amp; PubMed (2021)</span></span></li>
-                </ul>
-            </div>
-            <div class="reveal" style="display:flex;flex-direction:column;">
-                <div style="flex:1;border-radius:12px;overflow:hidden;display:flex;align-items:stretch;">
-                    <img src="images/communication-breakdown.png" alt="Physical therapist reviewing an incomplete chart with a concerned expression" style="width:100%;height:100%;object-fit:cover;display:block;">
-                </div>
-                <p class="source-line" style="margin-top:0.5rem;">Missed handoffs quietly shift the clinical picture</p>
-            </div>
-        </div>
-        <p class="source-line reveal" style="margin-top:0.5rem;">Pagliarulo<span class="cite">4</span> (p. 61); Schultzel et al.<span class="cite">3</span> See slide 12 for full references.</p>
-    </div>
-</div>
-
-<!-- ═══ SLIDE 8 — HOW PT GUIDES PTA ═══ -->
+<!-- ═══ SLIDE 8 — THE INCIDENT ═══ -->
 <div class="slide slide-8" data-slide="8">
     <div class="gradient-mesh">
-        <div class="blob" style="width:300px;height:300px;top:-50px;right:-60px;background:#0891B2;opacity:0.07;"></div>
-        <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#34D399;opacity:0.06;"></div>
+        <div class="blob" style="width:400px;height:400px;top:-80px;right:-80px;background:#D97706;opacity:0.08;"></div>
+        <div class="blob" style="width:280px;height:280px;bottom:-60px;left:-50px;background:#F59E0B;opacity:0.07;"></div>
     </div>
-    <div class="content">
-        <div class="section-pill reveal">PT Guidance</div>
-        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin-bottom:0.3rem;" class="reveal">How the PT Guides the PTA Well</h2>
-        <hr class="teal-rule reveal">
-        <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:1.2rem;margin-top:0.9rem;align-items:start;">
-            <div>
-                <ul class="lean-list">
-                    <li class="reveal"><span class="icon">&#128196;</span><span><strong>Share the Surgical Documentation</strong><span class="sub" style="display:block;margin-top:2px;">Operative notes, tear size, repair type, tissue quality</span></span></li>
-                    <li class="reveal"><span class="icon">&#9997;&#65039;</span><span><strong>Provide Written Advancement Criteria</strong><span class="sub" style="display:block;margin-top:2px;">PROM &#8594; AAROM &#8594; AROM: specific, not verbal, not vague</span></span></li>
-                    <li class="reveal"><span class="icon">&#128483;&#65039;</span><span><strong>Educate the Patient — Together</strong><span class="sub" style="display:block;margin-top:2px;">"Feeling better &#8800; tendon ready" — show what they CAN do now</span></span></li>
-                    <li class="reveal"><span class="icon">&#128276;</span><span><strong>Agree on an Escalation Protocol</strong><span class="sub" style="display:block;margin-top:2px;">What gets reported, how fast, who makes the call — before problems arise</span></span></li>
-                </ul>
-                <div style="margin-top:0.9rem;background:rgba(8,145,178,0.05);border-radius:10px;padding:0.65rem 0.85rem;border-left:3px solid #0891B2;" class="reveal">
-                    <p style="font-size:0.75rem;color:#334155;">Good PT guidance gives the PTA <em>context</em> to make sound real-time decisions — not just a list of restrictions to enforce.</p>
-                </div>
-            </div>
-            <div class="reveal">
-                <img src="images/pt-guides-pta.png" alt="Senior physical therapist mentoring a physical therapist assistant while reviewing a plan of care" class="content-img">
-                <p class="source-line">Mentorship in the moment — context, not just restriction</p>
-            </div>
-        </div>
-        <p class="source-line reveal" style="margin-top:0.5rem;">Pagliarulo<span class="cite">4</span> (p. 50); Baumann et al.<span class="cite">2</span>; Schultzel et al.<span class="cite">3</span> See slide 12 for full references.</p>
+    <div class="content text-center" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <div class="section-pill reveal" style="background:linear-gradient(135deg,#D97706,#F59E0B);margin-bottom:1rem;">The Conflict</div>
+        <p style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.2rem,6vw,3.6rem);font-style:italic;color:#0F172A;line-height:1.15;margin:0;" class="reveal">"It feels better today."</p>
+        <hr class="teal-rule reveal" style="background:linear-gradient(90deg,transparent,#D97706,transparent);margin:1.3rem auto;">
+        <p style="font-size:1.65rem;color:#334155;max-width:680px;line-height:1.4;" class="reveal">In a PTA-led session, Marcus attempts active lifting, despite the PROM-only precautions.</p>
     </div>
 </div>
 
-<!-- ═══ SLIDE 9 — REHAB TIMELINE ═══ -->
+<!-- ═══ SLIDE 9 — RECOMMENDATIONS ═══ -->
 <div class="slide slide-9" data-slide="9">
-    <div class="gradient-mesh">
-        <div class="blob" style="width:300px;height:300px;top:-50px;right:-60px;background:#06B6D4;opacity:0.07;"></div>
-        <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#0891B2;opacity:0.06;"></div>
-    </div>
-    <div class="content">
-        <div class="section-pill reveal">Rehab Context</div>
-        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin-bottom:0.3rem;" class="reveal">Rotator Cuff Repair: Rehab Phases</h2>
-        <hr class="teal-rule reveal">
-        <p style="color:#64748B;font-size:0.82rem;margin-bottom:0.9rem;" class="reveal">Our case is at <strong style="color:#0891B2;">Week 3</strong> — the most vulnerable healing stage.</p>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.85rem;align-items:stretch;">
-            <div class="phase-card reveal" style="position:relative;background:white;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);overflow:hidden;display:flex;flex-direction:column;border-top:3px solid #0891B2;">
-                <div style="position:relative;">
-                    <img src="images/phase1-prom.png" alt="Patient in a shoulder sling seated on a treatment table while a PTA gently supports the arm" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
-                    <span style="position:absolute;top:8px;right:8px;background:#0891B2;color:white;font-size:0.62rem;font-weight:700;padding:3px 9px;border-radius:14px;box-shadow:0 2px 6px rgba(8,145,178,0.35);">&#128205; Our Case</span>
-                </div>
-                <div style="padding:0.7rem 0.8rem;flex:1;display:flex;flex-direction:column;">
-                    <p class="phase-tag" style="margin-bottom:0.15rem;">Phase 1 &middot; Weeks 0&ndash;6</p>
-                    <p style="font-weight:700;color:#0F172A;font-size:0.82rem;line-height:1.25;">PROM Only — Tendon Healing</p>
-                    <p style="color:#64748B;font-size:0.72rem;margin-top:0.3rem;line-height:1.4;">Passive pendulums &amp; ROM. No active motion. Sling use.</p>
-                </div>
-            </div>
-            <div class="phase-card reveal" style="background:white;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);overflow:hidden;display:flex;flex-direction:column;border-top:3px solid #06B6D4;">
-                <img src="images/phase2-aarom.png" alt="Patient using a wooden cane for active-assisted shoulder motion while a PTA guides the elbow" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
-                <div style="padding:0.7rem 0.8rem;flex:1;display:flex;flex-direction:column;">
-                    <p class="phase-tag" style="margin-bottom:0.15rem;">Phase 2 &middot; Weeks 6&ndash;12</p>
-                    <p style="font-weight:700;color:#0F172A;font-size:0.82rem;line-height:1.25;">AAROM — Active-Assisted Motion</p>
-                    <p style="color:#64748B;font-size:0.72rem;margin-top:0.3rem;line-height:1.4;">Pulleys, cane-assisted ROM. PT re-evaluates before advancing.</p>
-                </div>
-            </div>
-            <div class="phase-card reveal" style="background:white;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);overflow:hidden;display:flex;flex-direction:column;border-top:3px solid #34D399;">
-                <img src="images/phase3-arom.png" alt="Patient using a teal resistance band for shoulder strengthening while a physical therapist coaches" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
-                <div style="padding:0.7rem 0.8rem;flex:1;display:flex;flex-direction:column;">
-                    <p class="phase-tag" style="margin-bottom:0.15rem;">Phase 3 &middot; Weeks 12&ndash;16+</p>
-                    <p style="font-weight:700;color:#0F172A;font-size:0.82rem;line-height:1.25;">AROM &amp; Strengthening</p>
-                    <p style="color:#64748B;font-size:0.72rem;margin-top:0.3rem;line-height:1.4;">Active motion begins. Resistance bands, isometrics, progressive loading.</p>
-                </div>
-            </div>
-            <div class="phase-card reveal" style="background:white;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);overflow:hidden;display:flex;flex-direction:column;border-top:3px solid #059669;">
-                <img src="images/phase4-functional.png" alt="Patient standing and reaching one arm fully overhead in a functional return motion with a PTA nearby" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
-                <div style="padding:0.7rem 0.8rem;flex:1;display:flex;flex-direction:column;">
-                    <p class="phase-tag" style="margin-bottom:0.15rem;">Phase 4 &middot; Month 4&ndash;6+</p>
-                    <p style="font-weight:700;color:#0F172A;font-size:0.82rem;line-height:1.25;">Functional Return</p>
-                    <p style="color:#64748B;font-size:0.72rem;margin-top:0.3rem;line-height:1.4;">Overhead activity, work/sport return — depends on tear size &amp; repair type.</p>
-                </div>
-            </div>
-        </div>
-        <div class="warning-box reveal" style="margin-top:0.8rem;font-size:0.77rem;">
-            &#9888;&#65039; Protocols are often <strong>generic</strong> — PT must obtain operative notes specifying tear size and repair technique before writing the plan. (PubMed 2021)
-        </div>
-    </div>
-</div>
-
-<!-- ═══ SLIDE 10 — RECOMMENDATIONS ═══ -->
-<div class="slide slide-10" data-slide="10">
     <div class="gradient-mesh">
         <div class="blob" style="width:380px;height:380px;top:-80px;right:-80px;background:#0891B2;opacity:0.08;"></div>
         <div class="blob" style="width:260px;height:260px;bottom:-60px;left:-40px;background:#34D399;opacity:0.07;"></div>
     </div>
     <canvas class="particle-canvas-ambient" style="position:absolute;inset:0;z-index:1;"></canvas>
     <div class="content">
-        <div class="section-pill reveal">Recommendations</div>
-        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin-bottom:0.3rem;" class="reveal">What Should Happen in This Case</h2>
+        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4.2vw,3rem);font-weight:700;margin-bottom:0.4rem;" class="reveal">What Should Happen in This Case</h2>
         <hr class="teal-rule reveal">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:0.9rem;">
-            <div>
-                <div class="role-header role-pta reveal">PTA Responds</div>
-                <ul class="lean-list">
-                    <li class="green reveal"><span class="icon">&#9995;&#65039;</span><span><strong>Stop the active lifting</strong><span class="sub" style="display:block;margin-top:2px;">Calmly redirect to PROM</span></span></li>
-                    <li class="green reveal"><span class="icon">&#128172;</span><span><strong>Explain the "why"</strong><span class="sub" style="display:block;margin-top:2px;">Feeling better &#8800; tendon healed</span></span></li>
-                    <li class="green reveal"><span class="icon">&#128222;</span><span><strong>Contact PT — same session</strong><span class="sub" style="display:block;margin-top:2px;">Document &amp; report before patient leaves</span></span></li>
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:0.7rem;margin-top:0.9rem;align-items:stretch;">
+            <div style="display:flex;flex-direction:column;height:100%;">
+                <div class="role-header role-pta reveal" style="flex-shrink:0;">PTA Responds</div>
+                <ul class="lean-list" style="flex:1;justify-content:space-between;gap:0.6rem;">
+                    <li class="green reveal" style="flex:1;align-items:center;"><span class="icon">&#9995;&#65039;</span><span><strong>Stop the active lifting</strong><span class="sub" style="display:block;margin-top:2px;">Calmly redirect to PROM</span></span></li>
+                    <li class="green reveal" style="flex:1;align-items:center;"><span class="icon">&#128172;</span><span><strong>Explain the "why"</strong><span class="sub" style="display:block;margin-top:2px;">Feeling better &#8800; tendon healed</span><span class="sub" style="display:block;margin-top:2px;">The strength is in the hardware, not the tendon</span></span></li>
+                    <li class="green reveal" style="flex:1;align-items:center;"><span class="icon">&#128222;</span><span><strong>Contact PT, same session</strong><span class="sub" style="display:block;margin-top:2px;">Document &amp; report before patient leaves</span></span></li>
+                    <li class="green reveal" style="flex:1;align-items:center;"><span class="icon">&#128221;</span><span><strong>Document the request itself</strong><span class="sub" style="display:block;margin-top:2px;">Log Marcus's words, the redirection given, and his response</span></span></li>
                 </ul>
             </div>
-            <div>
-                <div class="role-header role-pt reveal">PT Responds</div>
-                <ul class="lean-list">
-                    <li class="reveal"><span class="icon">&#128196;</span><span><strong>Review operative notes</strong><span class="sub" style="display:block;margin-top:2px;">Tear size, repair type, tissue quality</span></span></li>
-                    <li class="reveal"><span class="icon">&#128270;</span><span><strong>Determine if reassessment needed</strong><span class="sub" style="display:block;margin-top:2px;">Formal re-eval before plan changes</span></span></li>
-                    <li class="reveal"><span class="icon">&#9997;&#65039;</span><span><strong>Provide written advancement criteria</strong><span class="sub" style="display:block;margin-top:2px;">Specific triggers for AAROM/AROM</span></span></li>
+            <div class="reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0891B2;padding:0 0.3rem;">
+                <span style="font-size:2.1rem;line-height:1;">&#8646;</span>
+                <span style="font-size:0.85rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#64748B;margin-top:4px;white-space:nowrap;">same<br>session</span>
+            </div>
+            <div style="display:flex;flex-direction:column;height:100%;">
+                <div class="role-header role-pt reveal" style="flex-shrink:0;">PT Responds</div>
+                <ul class="lean-list" style="flex:1;justify-content:space-between;gap:0.6rem;">
+                    <li class="reveal" style="flex:1;align-items:center;"><span class="icon">&#128196;</span><span><strong>Review operative notes</strong><span class="sub" style="display:block;margin-top:2px;">Tear size, repair type, tissue quality</span></span></li>
+                    <li class="reveal" style="flex:1;align-items:center;"><span class="icon">&#128270;</span><span><strong>Determine if reassessment needed</strong><span class="sub" style="display:block;margin-top:2px;">Formal re-eval before plan changes</span></span></li>
+                    <li class="reveal" style="flex:1;flex-direction:column;align-items:stretch;">
+                        <div style="display:flex;align-items:center;gap:0.8rem;"><span class="icon">&#9878;&#65039;</span><strong>Decides: hold or advance?</strong></div>
+                        <div style="display:flex;gap:0.6rem;margin-top:0.55rem;">
+                            <div style="flex:1;background:rgba(8,145,178,0.08);border-radius:8px;padding:0.5rem 0.7rem;">
+                                <span style="display:block;font-size:0.78rem;font-weight:800;color:#0891B2;text-transform:uppercase;letter-spacing:0.04em;">Hold</span>
+                                <span style="display:block;font-size:1.05rem;margin-top:2px;line-height:1.25;">Reinforces PROM-only; tendon isn't healed enough at 3 wks</span>
+                            </div>
+                            <div style="flex:1;background:rgba(100,116,139,0.08);border-radius:8px;padding:0.5rem 0.7rem;">
+                                <span style="display:block;font-size:0.78rem;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.04em;">Advance</span>
+                                <span style="display:block;font-size:1.05rem;margin-top:2px;line-height:1.25;">Issues written AAROM criteria</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="reveal" style="flex:1;align-items:center;"><span class="icon">&#128209;</span><span><strong>Signs the updated progress note</strong><span class="sub" style="display:block;margin-top:2px;">Documents the decision either way; PT holds documentation oversight</span></span></li>
                 </ul>
             </div>
         </div>
-        <div style="margin-top:0.9rem;background:rgba(8,145,178,0.06);border-radius:10px;padding:0.65rem 0.9rem;border-left:3px solid #0891B2;" class="reveal">
-            <p style="font-size:0.78rem;color:#334155;"><strong style="color:#0891B2;">Going Forward:</strong> Establish a pre-agreed escalation protocol — what gets reported, how fast, who decides. No ambiguity during a session.</p>
+        <p class="source-line reveal">Pagliarulo<span class="cite">3</span> (p. 61); Baumann et al.<span class="cite">1</span>; Schultzel et al.<span class="cite">2</span>; APTA ethical standards<span class="cite">4</span>; APTA documentation authority<span class="cite">5</span></p>
+    </div>
+</div>
+<!-- ═══ SLIDE 10 — WHY COMMUNICATION MATTERS ═══ -->
+<div class="slide slide-10" data-slide="10" style="justify-content:flex-start;">
+    <div class="gradient-mesh">
+        <div class="blob" style="width:320px;height:320px;top:-60px;right:-70px;background:#F59E0B;opacity:0.09;"></div>
+        <div class="blob" style="width:220px;height:220px;bottom:-40px;left:-30px;background:#FDE68A;opacity:0.14;"></div>
+    </div>
+    <div class="content" style="height:100%;display:flex;flex-direction:column;padding-top:3.2rem;padding-bottom:75px;box-sizing:border-box;">
+        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4.2vw,3rem);font-weight:700;margin-bottom:0.3rem;flex-shrink:0;" class="reveal">Why Communication Matters</h2>
+        <hr class="teal-rule reveal" style="background:linear-gradient(90deg,#B45309,#F59E0B,transparent);flex-shrink:0;margin:0.5rem 0;">
+        <div class="warning-box reveal" style="position:relative;border-radius:18px;border:3px solid #B45309;background:linear-gradient(135deg,#FEF3C7,#FDE68A);box-shadow:0 10px 24px rgba(217,119,6,0.18),0 0 40px rgba(253,224,138,0.35);margin-top:0.8rem;padding:1.3rem 1.6rem 1.05rem;color:#451A03;flex-shrink:0;">
+            <span style="position:absolute;top:-16px;left:22px;background:linear-gradient(135deg,#D97706,#F59E0B);color:white;font-size:1.05rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;padding:6px 18px;border-radius:22px;display:flex;align-items:center;gap:8px;box-shadow:0 6px 14px rgba(0,0,0,0.2);white-space:nowrap;">&#9888;&#65039; The Risk:</span>
+            <div style="display:flex;align-items:center;justify-content:center;gap:0.7rem;flex-wrap:wrap;text-align:center;padding-top:0.35rem;">
+                <span style="font-size:1.6rem;font-weight:700;line-height:1.28;">Active lifting<br>goes unreported</span>
+                <span style="font-size:2rem;color:#9A3412;">&#8594;</span>
+                <span style="font-size:1.6rem;font-weight:700;line-height:1.28;">PT assumes<br>precautions are held</span>
+                <span style="font-size:2rem;color:#9A3412;">&#8594;</span>
+                <span style="font-size:1.6rem;font-weight:700;line-height:1.28;">The plan stays unchanged<br>while reality shifts</span>
+            </div>
         </div>
-        <p class="source-line reveal">APTA<span class="cite">1</span>; Pagliarulo<span class="cite">4</span> (p. 61); Baumann et al.<span class="cite">2</span>; Schultzel et al.<span class="cite">3</span> See slide 12 for full references.</p>
+        <div style="display:grid;grid-template-columns:1.4fr 0.85fr;gap:1rem;margin-top:0.5rem;align-items:flex-start;">
+            <div style="display:flex;flex-direction:column;">
+                <ul class="lean-list slide7-list" style="gap:1.1rem;">
+                    <li class="reveal" style="border-left-color:#0891B2;padding:1.6rem 1.3rem;font-size:1.3rem;"><span class="marker" style="background:linear-gradient(135deg,#0891B2,#0E7490);width:24px;height:24px;font-size:0.86rem;">1</span><span><strong style="line-height:1.28;">Patient requesting advancement<br>= PTA must seek PT reassessment</strong></span></li>
+                    <li class="reveal" style="border-left-color:#06B6D4;padding:1.6rem 1.3rem;font-size:1.3rem;"><span class="marker" style="background:linear-gradient(135deg,#06B6D4,#0891B2);width:24px;height:24px;font-size:0.86rem;">2</span><span><strong style="line-height:1.28;">Therapists often lack RCR operative notes</strong><span class="sub" style="display:block;margin-top:4px;font-weight:400;font-size:0.84rem;">33% of PTs surveyed reported receiving RCR operative notes &le;25% of the time</span></span></li>
+                    <li class="reveal" style="border-left-color:#34D399;padding:1.6rem 1.3rem;font-size:1.3rem;"><span class="marker" style="background:linear-gradient(135deg,#34D399,#059669);width:24px;height:24px;font-size:0.86rem;">3</span><span><strong style="line-height:1.28;">Incomplete surgical info + poor PT/PTA communication<br>= Compounded patient risk</strong></span></li>
+                </ul>
+            </div>
+            <div class="reveal" style="display:flex;flex-direction:column;">
+                <div style="border-radius:12px;overflow:hidden;display:flex;max-height:320px;">
+                    <img src="images/communication-breakdown.png" alt="Physical therapist reviewing an incomplete chart with a concerned expression" style="width:100%;max-height:320px;object-fit:cover;display:block;">">
+                </div>
+                <p class="source-line" style="margin-top:0.4rem;flex-shrink:0;">Missed handoffs quietly shift the clinical picture</p>
+            </div>
+        </div>
+        <p class="source-line reveal" style="margin-top:0.25rem;flex-shrink:0;">Pagliarulo<span class="cite">3</span> (p. 61); Schultzel et al.<span class="cite">2</span></p>
     </div>
 </div>
 
-<!-- ═══ SLIDE 11 — SOURCES ═══ -->
-<div class="slide slide-11" data-slide="11">
+<!-- ═══ SLIDE 11 — CLOSING ═══ -->
+<div class="slide slide-11" data-slide="11" style="background:#FFFFFF;">
+    <div class="content text-center">
+        <img src="images/team-takeaway.png" alt="Physical therapist, physical therapist assistants and patient sharing a warm partnership moment in a rehab clinic" class="reveal" style="display:block;margin:0 auto 1.2rem auto;width:auto;max-width:min(900px, 78%);max-height:clamp(160px, 40vh, 420px);height:auto;object-fit:contain;background:#FFFFFF;filter:drop-shadow(0 14px 28px rgba(8,145,178,0.20));">
+        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.2rem,5.2vw,4rem);font-weight:700;margin-bottom:0.5rem;line-height:1.1;" class="grad-title reveal">The Takeaway</h2>
+        <hr class="teal-rule reveal" style="margin:0 auto 0.7rem auto;">
+        <p style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.5rem,3.4vw,2.2rem);font-style:italic;color:#0F172A;line-height:1.28;max-width:780px;margin:0 auto;" class="reveal">Effective PT/PTA cooperation kept Marcus's repair safe, keeping him on track to return to work and eventually the studio.</p>
+        <div style="background:white;border-radius:16px;padding:0.9rem 1.6rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:left;max-width:780px;margin:0.8rem auto 0 auto;" class="reveal">
+        </div>
+    </div>
+</div>
+
+<!-- ═══ SLIDE 12 — SOURCES ═══ -->
+<div class="slide slide-12" data-slide="12">
     <div class="gradient-mesh">
         <div class="blob" style="width:300px;height:300px;top:-60px;right:-60px;background:#0891B2;opacity:0.07;"></div>
         <div class="blob" style="width:200px;height:200px;bottom:-40px;left:-30px;background:#34D399;opacity:0.06;"></div>
     </div>
     <div class="content">
         <div class="section-pill reveal">References</div>
-        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin-bottom:0.3rem;" class="reveal">Sources</h2>
+        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,4.2vw,3rem);font-weight:700;margin-bottom:0.4rem;" class="reveal">Sources</h2>
         <hr class="teal-rule reveal">
-        <div style="display:flex;flex-direction:column;gap:0.7rem;margin-top:0.9rem;">
-            <div style="background:white;border-radius:10px;border-left:4px solid #0891B2;padding:0.7rem 0.9rem;box-shadow:0 1px 6px rgba(0,0,0,0.05);" class="reveal">
-                <p style="font-size:0.7rem;font-weight:700;color:#0891B2;letter-spacing:0.08em;text-transform:uppercase;">1 &mdash; APTA</p>
-                <p style="font-size:0.82rem;color:#334155;margin-top:0.2rem;">American Physical Therapy Association. Supervision and teamwork. APTA. Accessed June 16, 2026. https://www.apta.org/your-practice/supervision-teamwork</p>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;margin-top:0.4rem;">
+            <a href="https://doi.org/10.7759/cureus.42680" target="_blank" rel="noopener noreferrer" class="source-card-link reveal" style="background:white;border-radius:10px;border-left:4px solid #0891B2;padding:0.5rem 0.8rem;box-shadow:0 1px 6px rgba(0,0,0,0.05);">
+                <p style="font-size:1.02rem;font-weight:700;color:#0891B2;letter-spacing:0.08em;text-transform:uppercase;">1: PT/PTA Team Outcomes &#8599;</p>
+                <p style="font-size:1.04rem;color:#334155;margin-top:0.25rem;line-height:1.4;">Baumann AN, Indermuhle T, Oleson CJ, et al. Clinical outcomes associated with the addition of a physical therapist assistant to a rehabilitation team when treating musculoskeletal shoulder pain in the outpatient setting: a retrospective cohort study. <em>Cureus.</em> 2023;15(7):e42680. doi:10.7759/cureus.42680</p>
+            </a>
+            <a href="https://doi.org/10.7812/TPP/20.088" target="_blank" rel="noopener noreferrer" class="source-card-link reveal" style="background:white;border-radius:10px;border-left:4px solid #F59E0B;padding:0.5rem 0.8rem;box-shadow:0 1px 6px rgba(0,0,0,0.05);">
+                <p style="font-size:1.02rem;font-weight:700;color:#D97706;letter-spacing:0.08em;text-transform:uppercase;">2: Surgeon-Therapist Communication &#8599;</p>
+                <p style="font-size:1.04rem;color:#334155;margin-top:0.25rem;line-height:1.4;">Schultzel M, Scheidt KB, McNeill B, Klein CM, Blout C, Itamura JM. Surgeon-therapist communication must be improved in rotator cuff repair rehabilitation: an electronic survey of physical therapists on postoperative rehabilitation protocols and communication with treating surgeons. <em>Perm J.</em> 2021;25:20.088. doi:10.7812/TPP/20.088</p>
+            </a>
+            <div style="background:white;border-radius:10px;border-left:4px solid #34D399;padding:0.5rem 0.8rem;box-shadow:0 1px 6px rgba(0,0,0,0.05);" class="reveal">
+                <p style="font-size:1.02rem;font-weight:700;color:#059669;letter-spacing:0.08em;text-transform:uppercase;">3: Textbook</p>
+                <p style="font-size:1.04rem;color:#334155;margin-top:0.25rem;line-height:1.4;">Pagliarulo MA, ed. <em>Introduction to Physical Therapy.</em> 5th ed. Elsevier Mosby; 2012.</p>
             </div>
-            <div style="background:white;border-radius:10px;border-left:4px solid #06B6D4;padding:0.7rem 0.9rem;box-shadow:0 1px 6px rgba(0,0,0,0.05);" class="reveal">
-                <p style="font-size:0.7rem;font-weight:700;color:#0891B2;letter-spacing:0.08em;text-transform:uppercase;">2 &mdash; PT/PTA Team Outcomes</p>
-                <p style="font-size:0.82rem;color:#334155;margin-top:0.2rem;">Baumann AN, Indermuhle T, Oleson CJ, et al. Clinical outcomes associated with the addition of a physical therapist assistant to a rehabilitation team when treating musculoskeletal shoulder pain in the outpatient setting: a retrospective cohort study. <em>Cureus.</em> 2023;15(7):e42680. doi:10.7759/cureus.42680</p>
-            </div>
-            <div style="background:white;border-radius:10px;border-left:4px solid #F59E0B;padding:0.7rem 0.9rem;box-shadow:0 1px 6px rgba(0,0,0,0.05);" class="reveal">
-                <p style="font-size:0.7rem;font-weight:700;color:#D97706;letter-spacing:0.08em;text-transform:uppercase;">3 &mdash; Surgeon-Therapist Communication</p>
-                <p style="font-size:0.82rem;color:#334155;margin-top:0.2rem;">Schultzel M, Scheidt KB, McNeill B, Klein CM, Blout C, Itamura JM. Surgeon-therapist communication must be improved in rotator cuff repair rehabilitation: an electronic survey of physical therapists on postoperative rehabilitation protocols and communication with treating surgeons. <em>Perm J.</em> 2021;25:20.088. doi:10.7812/TPP/20.088</p>
-            </div>
-            <div style="background:white;border-radius:10px;border-left:4px solid #34D399;padding:0.7rem 0.9rem;box-shadow:0 1px 6px rgba(0,0,0,0.05);" class="reveal">
-                <p style="font-size:0.7rem;font-weight:700;color:#059669;letter-spacing:0.08em;text-transform:uppercase;">4 &mdash; Textbook</p>
-                <p style="font-size:0.82rem;color:#334155;margin-top:0.2rem;">Pagliarulo MA, ed. <em>Introduction to Physical Therapy.</em> 5th ed. Elsevier Mosby; 2012.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ═══ SLIDE 12 — CLOSING ═══ -->
-<div class="slide slide-12" data-slide="12">
-    <div class="gradient-mesh">
-        <div class="blob" style="width:500px;height:500px;top:-100px;right:-100px;background:#0891B2;opacity:0.11;"></div>
-        <div class="blob" style="width:350px;height:350px;bottom:-80px;left:-60px;background:#34D399;opacity:0.09;"></div>
-        <div class="blob" style="width:200px;height:200px;top:30%;left:8%;background:#06B6D4;opacity:0.08;"></div>
-    </div>
-    <canvas class="particle-canvas" style="position:absolute;inset:0;z-index:1;"></canvas>
-    <div class="content text-center">
-        <img src="images/team-takeaway.png" alt="Physical therapist, physical therapist assistants and patient sharing a warm partnership moment in a rehab clinic" class="slide-hero-img reveal" style="margin:0 auto 0.7rem auto;">
-        <div class="section-pill reveal" style="margin-bottom:0.8rem;">PTA 100 &middot; Final Project</div>
-        <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.8rem,4.5vw,3.5rem);font-weight:700;margin-bottom:0.7rem;line-height:1.1;" class="grad-title reveal">The Takeaway</h2>
-        <hr class="teal-rule reveal" style="margin:0 auto 1rem auto;">
-        <div style="background:white;border-radius:14px;padding:1.2rem 1.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);text-align:left;max-width:680px;margin:0 auto 1rem auto;" class="reveal">
-            <p style="color:#334155;font-size:0.95rem;line-height:1.7;">PT/PTA collaboration works when roles are clear, communication is two-way, and the PTA understands the <em>why</em> behind the plan — not just the what.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.9rem;max-width:660px;margin:0 auto;">
-            <div style="background:rgba(8,145,178,0.08);border-radius:10px;padding:0.75rem 0.5rem;text-align:center;" class="reveal">
-                <p style="font-size:1.3rem;">&#128279;</p>
-                <p style="color:#0F172A;font-size:0.75rem;font-weight:700;margin-top:0.2rem;">Clear Role Boundaries</p>
-            </div>
-            <div style="background:rgba(52,211,153,0.08);border-radius:10px;padding:0.75rem 0.5rem;text-align:center;" class="reveal">
-                <p style="font-size:1.3rem;">&#128172;</p>
-                <p style="color:#0F172A;font-size:0.75rem;font-weight:700;margin-top:0.2rem;">Two-Way Communication</p>
-            </div>
-            <div style="background:rgba(6,182,212,0.08);border-radius:10px;padding:0.75rem 0.5rem;text-align:center;" class="reveal">
-                <p style="font-size:1.3rem;">&#128202;</p>
-                <p style="color:#0F172A;font-size:0.75rem;font-weight:700;margin-top:0.2rem;">Evidence-Backed Outcomes</p>
-            </div>
+            <a href="https://www.apta.org/siteassets/pdfs/policies/standards-ethical-conduct-pta.pdf" target="_blank" rel="noopener noreferrer" class="source-card-link reveal" style="background:white;border-radius:10px;border-left:4px solid #D97706;padding:0.5rem 0.8rem;box-shadow:0 1px 6px rgba(0,0,0,0.05);">
+                <p style="font-size:1.02rem;font-weight:700;color:#B45309;letter-spacing:0.08em;text-transform:uppercase;">4: PTA Ethical Standards &#8599;</p>
+                <p style="font-size:1.04rem;color:#334155;margin-top:0.25rem;line-height:1.4;">American Physical Therapy Association. Standards of Ethical Conduct for the Physical Therapist Assistant. HOD S06-20-31-26. Accessed June 16, 2026. https://www.apta.org/siteassets/pdfs/policies/standards-ethical-conduct-pta.pdf</p>
+            </a>
+            <a href="https://www.apta.org/your-practice/documentation" target="_blank" rel="noopener noreferrer" class="source-card-link reveal" style="background:white;border-radius:10px;border-left:4px solid #0891B2;padding:0.5rem 0.8rem;box-shadow:0 1px 6px rgba(0,0,0,0.05);">
+                <p style="font-size:1.02rem;font-weight:700;color:#0891B2;letter-spacing:0.08em;text-transform:uppercase;">5: Documentation Authority &#8599;</p>
+                <p style="font-size:1.04rem;color:#334155;margin-top:0.25rem;line-height:1.4;">American Physical Therapy Association. Physical Therapy Documentation of Patient and Client Management. Accessed July 8, 2026. https://www.apta.org/your-practice/documentation</p>
+            </a>
         </div>
     </div>
 </div>
@@ -558,7 +537,7 @@
     <button class="nav-btn" onclick="changeSlide(-1)">&#8249;</button>
     <div class="slide-dots" id="dots"></div>
     <button class="nav-btn" onclick="changeSlide(1)">&#8250;</button>
-    <span class="slide-counter" id="counter">1 / 13</span>
+    <span class="slide-counter" id="counter">1 / 12</span>
 </div>
 
 <div class="mouse-spotlight" style="position:fixed;inset:0;z-index:99;pointer-events:none;"></div>
